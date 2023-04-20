@@ -1,8 +1,8 @@
 @echo off
 rem Created by Fletcher Salesky
-rem CMP AUDIANCE SETUP Powershell Launcher (This verson from 2023-04-14)
+rem AUDIANCE SETUP Powershell Launcher (This verson from 2023-04-14)
 
-Title CMP AUDIANCE LAPTOP SETUP
+Title FRC AUDIANCE LAPTOP SETUP
 rem fancy color
 color 06
 cls
