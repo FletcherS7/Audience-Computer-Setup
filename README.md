@@ -1,7 +1,6 @@
 # Audiance-Computer-Setup
-Powershell to setup computer for FRC Audiance display
 
-A PowerShell script to mass configure FRC Audiance Display Toughbooks.
+A PowerShell script to mass configure FRC Audiance Display Toughbook's.
 
 Because of the default PowerShell restrictions in Windows. The AUDIANCE_SETUP.ps1 is run by Launch_AUDIANCE_SETUP.bat
 
