@@ -41,8 +41,8 @@ $ahs = Get-Item -Path HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings
 #Display Active Hours
 echo "Active Hours Set"
 $ahsoutput = [ordered]@{
-   ActiveHoursStart = $ahs.GetValue(‘ActiveHoursStart’)
-   ActiveHoursEnd = $ahs.GetValue(‘ActiveHoursEnd’)
+   ActiveHoursStart = $ahs.GetValue('ActiveHoursStart')
+   ActiveHoursEnd = $ahs.GetValue('ActiveHoursEnd')
 }
 echo $ahsoutput
 
