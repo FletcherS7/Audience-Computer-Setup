@@ -68,6 +68,45 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT 238C9FA8-0AAD-41ED-83F4-97BE242C8F20 7b
 powercfg /SETDCVALUEINDEX SCHEME_CURRENT 7516b95f-f776-4464-8c53-06167f40cc99 8ec4b3a5-6868-48c2-be75-4f3044be88a7 0
 powercfg /SETACVALUEINDEX SCHEME_CURRENT 7516b95f-f776-4464-8c53-06167f40cc99 8ec4b3a5-6868-48c2-be75-4f3044be88a7 0
 
+
+#Configure Autoplay for web based Audience Display.
+
+#Google Chrome
+echo "Configure Registry Keys for Autoplay in Google Chrome"
+$chromeRegistryPath = "HKLM:\SOFTWARE\Policies\Google\Chrome"
+
+if (-not (Test-Path -Path $chromeRegistryPath)) {
+    Write-Output "Chrome Path not found. Creating key."
+    New-Item -Path $chromeRegistryPath -Force | Out-Null
+} else {
+    Write-Output "Chrome Key already exists: [$chromeRegistryPath]."
+}
+Set-ItemProperty -Path $chromeRegistryPath -Name AutoplayAllowed -Value 0x00000001 -PassThru
+
+#Microsoft Edge
+echo "Configure Registry Keys for Autoplay in Microsoft Edge"
+$edgeRegistryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Edge"
+
+if (-not (Test-Path -Path $edgeRegistryPath)) {
+    Write-Output "Edge Path not found. Creating key."
+    New-Item -Path $edgeRegistryPath -Force | Out-Null
+} else {
+    Write-Output "Edge Key already exists: [$edgeRegistryPath]."
+}
+Set-ItemProperty -Path $edgeRegistryPath -Name AutoplayAllowed -Value 0x00000001 -PassThru
+
+#Mozilla Firefox
+echo "Configure Registry Keys for Autoplay in Mozilla Firefox"
+$firefoxRegistryPath = "HKLM:\Software\Policies\Mozilla\Firefox\Permissions\Autoplay"
+
+if (-not (Test-Path -Path $firefoxRegistryPath)) {
+    Write-Output "Firefox Path not found. Creating key."
+    New-Item -Path $firefoxRegistryPath -Force | Out-Null
+} else {
+    Write-Output "Firefox Key already exists: [$fireRegistryPath]."
+}
+Set-ItemProperty -Path $firefoxRegistryPath -Name Default -Value "allow-audio-video" -Type String -PassThru
+
 #Set Computer Name
 $HostNameStatic = "FRCFIELD-"
 #Prompt for computer name
